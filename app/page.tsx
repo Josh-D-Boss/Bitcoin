@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Shield, Globe, Zap, Users, TrendingUp, Lock, ArrowRight, Star, ChevronRight, Bitcoin } from "lucide-react"
+import { Shield, Globe, Zap, Users, TrendingUp, Lock, ArrowRight, Bitcoin } from "lucide-react"
 
 export default function HomePage() {
   const stats = [
@@ -17,75 +17,111 @@ export default function HomePage() {
   ]
 
   const features = [
-    {
-      icon: Shield,
-      title: "Decentralized Security",
-      description: "Protected by the world's most secure blockchain network with cryptographic proof.",
-    },
-    {
-      icon: Globe,
-      title: "Global Access",
-      description: "Send and receive Bitcoin anywhere in the world, 24/7, without intermediaries.",
-    },
-    {
-      icon: Zap,
-      title: "Low Fees",
-      description: "Minimal transaction costs compared to traditional banking and payment systems.",
-    },
-    {
-      icon: Users,
-      title: "Community Driven",
-      description: "Powered by a global community of developers, miners, and users worldwide.",
-    },
+    { icon: Shield, title: "Decentralized Security", description: "Protected by the world's most secure blockchain network with cryptographic proof." },
+    { icon: Globe, title: "Global Access", description: "Send and receive Bitcoin anywhere in the world, 24/7, without intermediaries." },
+    { icon: Zap, title: "Low Fees", description: "Minimal transaction costs compared to traditional banking and payment systems." },
+    { icon: Users, title: "Community Driven", description: "Powered by a global community of developers, miners, and users worldwide." },
   ]
 
   const steps = [
-    {
-      step: "01",
-      title: "Create Account",
-      description: "Sign up with your email and verify your identity to get started.",
-    },
-    {
-      step: "02",
-      title: "Buy Bitcoin",
-      description: "Purchase Bitcoin using your preferred payment method securely.",
-    },
-    {
-      step: "03",
-      title: "Secure Wallet",
-      description: "Store your Bitcoin in our secure wallet or transfer to your own.",
-    },
+    { step: "01", title: "Create Account", description: "Sign up with your email and verify your identity to get started." },
+    { step: "02", title: "Buy Bitcoin", description: "Purchase Bitcoin using your preferred payment method securely." },
+    { step: "03", title: "Secure Wallet", description: "Store your Bitcoin in our secure wallet or transfer to your own." },
   ]
 
   const testimonials = [
-    {
-      name: "Sarah Chen",
-      role: "Crypto Investor",
-      content: "The most professional Bitcoin platform I've used. Excellent security and user experience.",
-      rating: 5,
-      avatar: "/professional-woman-diverse.png",
-    },
-    {
-      name: "Michael Rodriguez",
-      role: "Business Owner",
-      content: "Bitcoin has revolutionized how I handle international payments. Fast and reliable.",
-      rating: 5,
-      avatar: "/confident-businessman.png",
-    },
-    {
-      name: "Emma Thompson",
-      role: "Tech Entrepreneur",
-      content: "The future of money is here. This platform makes Bitcoin accessible to everyone.",
-      rating: 5,
-      avatar: "/tech-woman.png",
-    },
+    { name: "Sarah Chen", role: "Crypto Investor", content: "The most professional Bitcoin platform I've used. Excellent security and user experience.", rating: 5, avatar: "/professional-woman-diverse.png" },
+    { name: "Michael Rodriguez", role: "Business Owner", content: "Bitcoin has revolutionized how I handle international payments. Fast and reliable.", rating: 5, avatar: "/confident-businessman.png" },
+    { name: "Emma Thompson", role: "Tech Entrepreneur", content: "The future of money is here. This platform makes Bitcoin accessible to everyone.", rating: 5, avatar: "/tech-woman.png" },
   ]
 
   const faqs = [
-    {
-      question: "Is Bitcoin safe?",
-      answer:
-        "Bitcoin is secured by cryptographic proof and the world's most powerful distributed computing network. It's designed to be tamper-proof and transparent.",
+    { question: "Is Bitcoin safe?", answer: "Bitcoin is secured by cryptographic proof and the world's most powerful distributed computing network. It's designed to be tamper-proof and transparent." },
+    { question: "How do I buy Bitcoin?", answer: "Simply create an account, verify your identity, and use your preferred payment method to purchase Bitcoin. We support bank transfers, credit cards, and more." },
+    { question: "Can Bitcoin be traced?", answer: "Bitcoin transactions are recorded on a public ledger called the blockchain. While transactions are transparent, personal identities are pseudonymous." },
+    { question: "What are the fees?", answer: "Our platform charges competitive fees for buying, selling, and transferring Bitcoin. Network fees vary based on blockchain congestion." },
+  ]
+
+  return (
+    <div className="min-h-screen overflow-x-hidden">
+      <Navigation />
+
+      {/* Hero Section */}
+      <section className="pt-24 pb-16 gradient-bg relative overflow-hidden">
+        <div className="absolute inset-0 w-full h-full bg-[url('/abstract-digital-pattern.png')] bg-cover opacity-10"></div>
+        <div className="container mx-auto px-4 relative">
+          <div className="text-center max-w-4xl mx-auto">
+            <Badge className="mb-6 bitcoin-gradient text-white border-0">The Future of Money</Badge>
+            <h1 className="text-5xl md:text-7xl font-heading font-bold text-white mb-6">The Future of Money, Today.</h1>
+            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+              Join millions worldwide who trust Bitcoin for secure, decentralized digital transactions. Experience the freedom of peer-to-peer money.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bitcoin-gradient text-white border-0 hover:scale-105 transition-transform">
+                Create Account <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+              {/* ✅ Login button removed */}
+            </div>
+          </div>
+          <div className="mt-16 animate-float">
+            <div className="w-32 h-32 mx-auto bitcoin-gradient rounded-full flex items-center justify-center">
+              <Bitcoin className="h-16 w-16 text-white" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Price Chart Section */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <BitcoinPriceChart />
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {stats.map((stat, index) => (
+              <Card key={index} className="glass text-center overflow-hidden">
+                <CardContent className="pt-6 transform transition-transform hover:scale-105">
+                  <stat.icon className="h-8 w-8 text-primary mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-foreground">{stat.value}</div>
+                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-heading font-bold mb-4">Why Choose Bitcoin</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Discover the advantages of the world's first and most trusted cryptocurrency
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {features.map((feature, index) => (
+              <Card key={index} className="glass overflow-hidden">
+                <CardHeader className="transform transition-transform hover:scale-105">
+                  <feature.icon className="h-12 w-12 text-primary mb-4" />
+                  <CardTitle className="text-xl">{feature.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-base">{feature.description}</CardDescription>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}        "Bitcoin is secured by cryptographic proof and the world's most powerful distributed computing network. It's designed to be tamper-proof and transparent.",
     },
     {
       question: "How do I buy Bitcoin?",
