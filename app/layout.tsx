@@ -1,3 +1,4 @@
+// app/layout.tsx  — REPLACE your existing file with this
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Work_Sans } from "next/font/google"
@@ -13,7 +14,7 @@ const inter = Inter({
 const workSans = Work_Sans({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-work-sans",
+  variable: "--font-heading",
 })
 
 export const metadata: Metadata = {
@@ -35,6 +36,18 @@ html {
   font-family: ${inter.style.fontFamily};
   --font-sans: ${inter.variable};
   --font-heading: ${workSans.variable};
+}
+        `}</style>
+      </head>
+      {/* NOTE: added overflow-x-hidden to body to block horizontal scroll globally */}
+      <body className={`${inter.variable} ${workSans.variable} antialiased overflow-x-hidden`}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
+  )
+}  --font-heading: ${workSans.variable};
 }
         `}</style>
       </head>
