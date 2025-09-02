@@ -1,40 +1,35 @@
-/* ------------------------------------ Click on login and Sign Up to  changue and view the effect
----------------------------------------
-*/
+$(function() {
+	$(".btn").click(function() {
+		$(".form-signin").toggleClass("form-signin-left");
+    $(".form-signup").toggleClass("form-signup-left");
+    $(".frame").toggleClass("frame-long");
+    $(".signup-inactive").toggleClass("signup-active");
+    $(".signin-active").toggleClass("signin-inactive");
+    $(".forgot").toggleClass("forgot-left");   
+    $(this).removeClass("idle").addClass("active");
+	});
+});
 
-* {
-  margin: 0px auto;
-  padding: 0px;
-  text-align: center;
-  font-family: "Open Sans", sans-serif;
-}
+$(function() {
+	$(".btn-signup").click(function() {
+  $(".nav").toggleClass("nav-up");
+  $(".form-signup-left").toggleClass("form-signup-down");
+  $(".success").toggleClass("success-left"); 
+  $(".frame").toggleClass("frame-short");
+	});
+});
 
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  width: 100%;
-  padding: 0 10px;
-}
-
-body::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: url("hero-bg.jpg"), #000;
-  background-position: center;
-  background-size: cover;
-}
-
-.cont_centrar {
-  display: flex;
-  align-self: center;
-  width: 100%;
-}
-
-.cont_login {
+$(function() {
+	$(".btn-signin").click(function() {
+  $(".btn-animate").toggleClass("btn-animate-grow");
+  $(".welcome").toggleClass("welcome-left");
+  $(".cover-photo").toggleClass("cover-photo-down");
+  $(".frame").toggleClass("frame-short");
+  $(".profile-photo").toggleClass("profile-photo-down");
+  $(".btn-goback").toggleClass("btn-goback-up");
+  $(".forgot").toggleClass("forgot-fade");
+	});
+});.cont_login {
   position: relative;
   width: 640px;
 }
