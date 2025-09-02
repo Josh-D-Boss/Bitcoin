@@ -27,7 +27,7 @@ export default function HomePage() {
               </p>
               <div className="flex justify-center lg:justify-start">
                 <Button size="lg" className="shadow-bitcoin-glow-lg hover:shadow-bitcoin-glow text-lg px-8">
-                  <Link href="/public/index.html">Get Started</Link>
+                  <Link href="/index.html">Get Started</Link>
                 </Button>
               </div>
             </div>
