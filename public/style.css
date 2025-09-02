@@ -7,25 +7,19 @@ body {
   padding: 0;
 }
 
-/* ===== Frame Container ===== */
 .frame {
-  width: 90%;                  /* Responsive width */
-  max-width: 430px;            /* Max size on desktop */
-  margin: 50px auto;           /* Centered with top spacing */
-  background: #272727;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
-  padding: 20px;
+  width: 90%;            /* scales on small screens */
+  max-width: 430px;      /* keeps your original size on larger screens */
+  margin: 0 auto;        /* centered */
+  height: auto;          /* let the content decide height */
   box-sizing: border-box;
-  color: #fff;
 }
 
-/* ===== Form Sections ===== */
 .form-signin,
 .form-signup {
-  width: 100%;                 /* Fill frame */
-  padding: 0 20px;
-  box-sizing: border-box;
+  width: 100%;           /* fills the frame */
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 /* ===== Form Inputs ===== */
