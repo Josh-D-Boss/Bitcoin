@@ -1588,18 +1588,3 @@ a.btn-goback:hover {
   fill: #1059FF;
   transform: rotate(180deg);
 }
-
-/* Scale down frame contents only on smaller screens */
-@media (max-width: 768px) {
-  .frame {
-    transform: scale(0.95);
-    transform-origin: center top; /* keeps it centered */
-  }
-}
-
-@media (max-width: 480px) {
-  .frame {
-    transform: scale(0.9);
-    transform-origin: center top;
-  }
-	  }
