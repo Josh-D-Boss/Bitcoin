@@ -146,9 +146,13 @@ export default function HomePage() {
             simple onboarding process.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="shadow-bitcoin-glow-lg hover:shadow-bitcoin-glow text-lg px-8">
-              <Link href="#">Get Started</Link>
-            </Button>
+            <Link href="/index.html">
+                  <Button
+                    size="lg"
+                    className="shadow-bitcoin-glow-lg hover:shadow-bitcoin-glow text-lg px-8">
+                    Get Started
+                  </Button>
+                </Link>
             <Button size="lg" variant="outline" asChild>
               <Link href="/about">Learn More</Link>
             </Button>
