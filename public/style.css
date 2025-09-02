@@ -1,39 +1,157 @@
-html, body * { box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
-
+/* ===== General Reset ===== */
 body {
-  background:
-    linear-gradient(
-    rgba(246,247,249,0.8),
-    rgba(246,247,249,0.8)),
-    url(https://dl.dropboxusercontent.com/u/22006283/preview/codepen/sky-clouds-cloudy-mountain.jpg) no-repeat center center fixed;
-  background-size: cover;
+  background: #1b1b1b;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
 }
 
-.container {
-  width: 100%;
-  padding-top: 60px;
-  padding-bottom: 100px;
-}
-
+/* ===== Frame Container ===== */
 .frame {
-  height: 575px;
-  width: 430px;
-  background:
-    linear-gradient(
-    rgba(35,43,85,0.75),
-    rgba(35,43,85,0.95)),
-    url(https://dl.dropboxusercontent.com/u/22006283/preview/codepen/clouds-cloudy-forest-mountain.jpg) no-repeat center center;
-  background-size: cover;
-  margin-left: auto;
-  margin-right: auto;
-  border-top: solid 1px rgba(255,255,255,.5);
-  border-radius: 5px;
-  box-shadow: 0px 2px 7px rgba(0,0,0,0.2);
-  overflow: hidden;
-  transition: all .5s ease;
+  width: 90%;                  /* Responsive width */
+  max-width: 430px;            /* Max size on desktop */
+  margin: 50px auto;           /* Centered with top spacing */
+  background: #272727;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  box-sizing: border-box;
+  color: #fff;
 }
 
-.frame-long {
+/* ===== Form Sections ===== */
+.form-signin,
+.form-signup {
+  width: 100%;                 /* Fill frame */
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* ===== Form Inputs ===== */
+.form-styling {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  padding-left: 10px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  background: #333;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.form-styling:focus {
+  outline: none;
+  background: #444;
+}
+
+/* ===== Labels ===== */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ===== Buttons ===== */
+.btn-signin {
+  width: 100%;
+  height: 45px;
+  border-radius: 5px;
+  border: none;
+  background: #e50914;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-signin:hover {
+  background: #f6121d;
+}
+
+/* ===== Utility Links ===== */
+.forgot {
+  text-align: right;
+  font-size: 13px;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
+.forgot a {
+  color: #bbb;
+  text-decoration: none;
+}
+
+.forgot a:hover {
+  color: #fff;
+}
+
+/* ===== Signup Switch ===== */
+.no-access {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.no-access a {
+  color: #e50914;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.no-access a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Mobile Responsiveness ===== */
+@media (max-width: 600px) {
+  .frame {
+    width: 95%;
+    padding: 15px;
+    margin: 30px auto;
+  }
+
+  .form-styling {
+    height: 36px;
+    font-size: 14px;
+  }
+
+  label {
+    font-size: 12px;
+  }
+
+  .btn-signin {
+    height: 42px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .frame {
+    width: 95%;
+    padding: 12px;
+    margin: 20px auto;
+  }
+
+  .form-styling {
+    height: 32px;
+    font-size: 13px;
+  }
+
+  .btn-signin {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  label {
+    font-size: 11px;
+  }
+}
   height: 615px;
 }
 
