@@ -26,9 +26,13 @@ export default function HomePage() {
                 transparent pricing. Join the financial revolution today.
               </p>
               <div className="flex justify-center lg:justify-start">
-                <Button size="lg" className="shadow-bitcoin-glow-lg hover:shadow-bitcoin-glow text-lg px-8">
-                  <Link href="/index.html">Get Started</Link>
-                </Button>
+                <Link href="/index.html">
+                  <Button
+                    size="lg"
+                    className="shadow-bitcoin-glow-lg hover:shadow-bitcoin-glow text-lg px-8">
+                    Get Started
+                  </Button>
+                </Link>
               </div>
             </div>
 
