@@ -1613,7 +1613,7 @@ a.btn-goback:hover {
   .btn-signin,
   .btn-animate {
     width: 100%;           /* keeps them responsive */
-    max-width: 80%;        /* 👈 adjust this number too */
+    max-width: 95%;        /* 👈 adjust this number too */
     box-sizing: border-box;
     margin-left: auto;     /* centers them */
     margin-right: auto;
