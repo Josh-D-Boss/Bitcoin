@@ -1588,3 +1588,19 @@ a.btn-goback:hover {
   fill: #1059FF;
   transform: rotate(180deg);
 }
+
+/* Mobile-only adjustment: keep form fields inset */
+@media (max-width: 480px) {
+  .form-signin,
+  .form-signup {
+    padding: 0 15px;        /* inset space left & right */
+    box-sizing: border-box;
+  }
+
+  .form-styling,
+  button {
+    width: 100%;            /* still responsive */
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
