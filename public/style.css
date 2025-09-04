@@ -1590,35 +1590,17 @@ a.btn-goback:hover {
 }
 
 /* Mobile-only adjustment: keep form fields inset */
-/* First mobile tweak */
 @media (max-width: 480px) {
   .form-signin,
   .form-signup {
-    padding: 0 15px;       /* inset space left & right */
+    padding: 0 15px;        /* inset space left & right */
     box-sizing: border-box;
   }
 
   .form-styling,
   button {
-    width: 100%;           /* still responsive */
-    max-width: 80%;        /* 👈 you can adjust this */
+    width: 100%;            /* still responsive */
+    max-width: 80%;
     box-sizing: border-box;
   }
-}
-
-/* Second mobile tweak */
-@media (max-width: 480px) {
-  .form-styling,
-  .btn-signup,
-  .btn-signin,
-  .btn-animate {
-    width: 100%;           /* keeps them responsive */
-    max-width: 95%;        /* 👈 adjust this number too */
-    box-sizing: border-box;
-    margin-left: auto;     /* centers them */
-    margin-right: auto;
-    display: block;
-  }
-}
-
 }
