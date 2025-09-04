@@ -1589,21 +1589,30 @@ a.btn-goback:hover {
   transform: rotate(180deg);
 }
 
+/* First mobile tweak */
 @media (max-width: 480px) {
-  /* Forms */
   .form-signin,
   .form-signup {
-    padding: 0 15px;       /* inset space left & right */
+    padding: 0 30px;       /* inset space left & right */
     box-sizing: border-box;
   }
 
-  /* Inputs + Buttons */
+  .form-styling,
+  button {
+    width: 100%;           /* still responsive */
+    max-width: 80%;        /* 👈 you can adjust this */
+    box-sizing: border-box;
+  }
+}
+
+/* Second mobile tweak */
+@media (max-width: 480px) {
   .form-styling,
   .btn-signup,
   .btn-signin,
   .btn-animate {
-    width: 100%;           /* responsive */
-    max-width: 80%;        /* 👈 adjust this one number to shrink both inputs + buttons */
+    width: 100%;           /* keeps them responsive */
+    max-width: 95%;        /* 👈 adjust this number too */
     box-sizing: border-box;
     margin-left: auto;     /* centers them */
     margin-right: auto;
