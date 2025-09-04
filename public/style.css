@@ -1589,18 +1589,24 @@ a.btn-goback:hover {
   transform: rotate(180deg);
 }
 
-/* Mobile-only adjustment: keep form fields inset */
 @media (max-width: 480px) {
+  /* Forms */
   .form-signin,
   .form-signup {
-    padding: 0 15px;        /* inset space left & right */
+    padding: 0 15px;       /* inset space left & right */
     box-sizing: border-box;
   }
 
+  /* Inputs + Buttons */
   .form-styling,
-  button {
-    width: 100%;            /* still responsive */
-    max-width: 80%;
+  .btn-signup,
+  .btn-signin,
+  .btn-animate {
+    width: 100%;           /* responsive */
+    max-width: 80%;        /* 👈 adjust this one number to shrink both inputs + buttons */
     box-sizing: border-box;
+    margin-left: auto;     /* centers them */
+    margin-right: auto;
+    display: block;
   }
 }
