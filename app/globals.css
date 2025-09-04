@@ -101,7 +101,7 @@
 
   /* Hero background image utility */
   .hero-bg {
-    background-image: url("/placeholder.svg?height=800&width=1200");
+    background-image: url("/hero.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
