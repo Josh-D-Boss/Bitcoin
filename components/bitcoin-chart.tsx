@@ -19,10 +19,8 @@ const COINS = ["bitcoin", "ethereum", "litecoin"]
 
 export function BitcoinChart() {
   const [timeframe, setTimeframe] = useState<"1" | "7" | "30">("7")
-  const [chartData, setChartData] = useState<any>({
-    labels: [],
-    datasets: [],
-  })
+  const [chartData, setChartData] = useState<any>({ labels: [], datasets: [] })
+  const [isDark, setIsDark] = useState(false)
 
   const fetchData = async () => {
     try {
@@ -59,9 +57,20 @@ export function BitcoinChart() {
 
   useEffect(() => {
     fetchData()
-    const interval = setInterval(fetchData, 60000) // refresh every 1 min
+    const interval = setInterval(fetchData, 60000)
     return () => clearInterval(interval)
   }, [timeframe])
+
+  // Detect theme changes
+  useEffect(() => {
+    const updateTheme = () => {
+      setIsDark(document.documentElement.classList.contains("dark"))
+    }
+    updateTheme()
+    const observer = new MutationObserver(updateTheme)
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] })
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <div className="w-full max-w-5xl mx-auto p-6 bg-card rounded-lg border shadow-lg">
@@ -97,7 +106,7 @@ export function BitcoinChart() {
             maintainAspectRatio: false,
             plugins: {
               legend: {
-                labels: { color: "#ddd" },
+                labels: { color: isDark ? "#eee" : "#222" },
               },
               tooltip: {
                 mode: "index" as const,
@@ -105,13 +114,18 @@ export function BitcoinChart() {
               },
             },
             scales: {
-              x: { ticks: { color: "#aaa" }, grid: { color: "#333" } },
-              y: { ticks: { color: "#aaa" }, grid: { color: "#333" } },
+              x: {
+                ticks: { color: isDark ? "#ccc" : "#333" },
+                grid: { color: isDark ? "#444" : "#ddd" },
+              },
+              y: {
+                ticks: { color: isDark ? "#ccc" : "#333" },
+                grid: { color: isDark ? "#444" : "#ddd" },
+              },
             },
           }}
         />
       </div>
     </div>
   )
-        }
-              
+}
