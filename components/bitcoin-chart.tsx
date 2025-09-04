@@ -20,23 +20,6 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 const COINS = ["bitcoin", "ethereum", "litecoin"]
 type PricePoint = [number, number]
 
-const generateMockData = (timeframe: string, coinIndex: number) => {
-  const basePrice = [45000, 3200, 180][coinIndex] // Base prices for BTC, ETH, LTC
-  const volatility = [0.05, 0.08, 0.12][coinIndex] // Different volatility levels
-
-  const dataPoints = timeframe === "1" ? 24 : timeframe === "7" ? 7 : 30
-  const prices: PricePoint[] = []
-
-  for (let i = 0; i < dataPoints; i++) {
-    const timestamp = Date.now() - (dataPoints - i) * (timeframe === "1" ? 3600000 : 86400000)
-    const randomChange = (Math.random() - 0.5) * volatility
-    const price = basePrice * (1 + randomChange + Math.sin(i / 3) * 0.02)
-    prices.push([timestamp, price])
-  }
-
-  return { prices }
-}
-
 export function BitcoinChart() {
   const [timeframe, setTimeframe] = useState<"1" | "7" | "30">("7")
   const [chartData, setChartData] = useState<ChartData<"line">>({
@@ -52,11 +35,19 @@ export function BitcoinChart() {
       setIsLoading(true)
       setError(null)
 
-      // Simulate API delay
-      await new Promise((resolve) => setTimeout(resolve, 500))
+      // Fetch data for all coins from CoinGecko
+      const promises = COINS.map((coin) =>
+        fetch(
+          `https://api.coingecko.com/api/v3/coins/${coin}/market_chart?vs_currency=usd&days=${timeframe}`
+        ).then((res) => {
+          if (!res.ok) throw new Error(`Failed to fetch ${coin}`)
+          return res.json()
+        })
+      )
 
-      const results = COINS.map((_, idx) => generateMockData(timeframe, idx))
+      const results = await Promise.all(promises)
 
+      // Labels from the first coin (timestamps → formatted)
       const labels = results[0].prices.map((p: PricePoint) => {
         const date = new Date(p[0])
         return timeframe === "1"
@@ -64,6 +55,7 @@ export function BitcoinChart() {
           : `${date.getDate()}/${(date.getMonth() + 1).toString().padStart(2, "0")}`
       })
 
+      // Datasets for BTC, ETH, LTC
       const datasets: ChartDataset<"line">[] = results.map((coinData, idx) => ({
         label: COINS[idx].charAt(0).toUpperCase() + COINS[idx].slice(1),
         data: coinData.prices.map((p: PricePoint) => p[1]),
@@ -87,7 +79,7 @@ export function BitcoinChart() {
 
   useEffect(() => {
     fetchData()
-    const interval = setInterval(fetchData, 60000)
+    const interval = setInterval(fetchData, 60000) // refresh every 60s
     return () => clearInterval(interval)
   }, [timeframe])
 
