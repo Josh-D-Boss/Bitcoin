@@ -308,7 +308,7 @@ label {
   text-align: center;
   color: #ffffff;
   padding-top: 8px;
-  width: 100%;
+  width: 85%;
   height: 35px;
 	border: none;
 	border-radius: 20px;
@@ -319,7 +319,7 @@ label {
 .btn-signin {
   float: left;
   padding-top: 8px;
-  width: 100%;
+  width: 85%;
   height: 35px;
 	border: none;
 	border-radius: 20px;
